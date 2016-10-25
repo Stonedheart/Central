@@ -2,16 +2,20 @@ DOOR_OPEN = True
 DOOR_CLOSED = False
 DOORS_COUNT = 4
 
-#list init
-doors = []
+"""List initialization"""
 
-for i in range(1, DOORS_COUNT+1):
-    doors.append(DOOR_CLOSED)
+#original:
+#for i in range(1, DOORS_COUNT+1):
+#    doors.append(DOOR_CLOSED)
+
+#shorter version, working, correct?
+doors = [DOOR_CLOSED for DOOR_CLOSED in range(1, DOORS_COUNT+1)]
 
 
-#walkthrough
-print(doors)
+"""Walkthrough"""
+print(doors) #not really necessary
 
+#original
 for walk in range(1, DOORS_COUNT+1):
     for index, door in enumerate(doors):
         if (index+1) % walk == 0:
@@ -23,12 +27,13 @@ for walk in range(1, DOORS_COUNT+1):
     print(doors)
 
 
-#final display
+"""Final display"""
 opened_doors = ""
 
+#original
 for index, door in enumerate(doors):
-    if door == DOOR_CLOSED:
-        opened_doors = opened_doors + ', ' + str(index+1)
+        if door == DOOR_CLOSED:
+            opened_doors = opened_doors + ', ' + str(index+1)
 
 
 print("This doors are open: " + opened_doors)
